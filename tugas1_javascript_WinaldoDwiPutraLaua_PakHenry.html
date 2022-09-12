@@ -1,0 +1,62 @@
+<script language="javascript">
+    //Nama  : Muhammad Andhika Bayu Prasetya
+    //Universitas Negeri Malang
+    //Mentor: Pak Henry
+
+    var nama ="Ridwan";
+    var jabatan = "Manager";
+    var status = "Menikah";
+
+    
+    //gaji
+    if(jabatan == 'Manager'){
+        gaji = 15000000; 
+    } 
+    else if(jabatan == 'Asisten Manager'){
+        gaji = 10000000; 
+    } 
+    else if(jabatan == 'Staff'){
+        gaji = 5000000; 
+    }
+
+    //variabel
+    let tunjangan_jab = 0.15 * gaji;
+    let bpjs = 0.1 * gaji;
+    let tunjangan_kel = (status == 'Menikah') ? 0.2 * gaji : 0;
+    let total = tunjangan_jab + bpjs + tunjangan_kel;
+
+    document.write("<h3 align='center'> Tugas 1 Javascript </h3>" +
+    "<table align='center' cellpadding='20' cellspacing='0' border='1'>" +
+        "<thead>" +
+            "<tr bgcolor='yellow' align='center'>"+
+                "<th>" + "Nama Pegawai" + "</th>" +
+                "<th>" + "Jabatan Pegawai" + "</th>" +
+                "<th>" + "Status Perkawinan" + "</th>" +
+                "<th>" + "Gaji Pokok" + "</th>" +
+                "<th>" + "Tunjangan Jabatan" + "</th>" +
+                "<th>" + "BPJS" + "</th>" +
+                "<th>" + "Tunjangan Keluarga" + "</th>" +
+            "</tr>" +
+        "</thead>" +
+
+        "<tbody>" +
+            "<tr align='center'>" +
+                "<td>" + nama + "</td>" +
+                "<td>" + jabatan + "</td>" +
+                "<td>" + status + "</td>" +
+                "<td>" + gaji + "</td>" +
+                "<td>" + tunjangan_jab + "</td>" +
+                "<td>" + bpjs + "</td>" +
+                "<td>" + tunjangan_kel + "</td>" +
+            "</tr>" +
+        "</tbody>" +
+
+        "<tfoot>" +
+            "<tr>" +
+                "<th colspan='3' bgcolor='yellow' align='center'>" + "Total Gaji" + "</th>" +
+                "<th colspan='5' align='center'>" + total + "</th>" +
+            "</tr>" +
+        "</tfoot>" +
+    "</table>"
+    );
+</script>
