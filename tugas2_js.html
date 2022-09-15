@@ -1,0 +1,69 @@
+    <h2 align="center">Daftar Pegawai</h2>
+            <table align="center" cellpadding="15" cellspacing="0">
+                <thead>
+                    <tr bgcolor="#FFA07A">
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                        <th>Agama</th>
+                        <th>Gaji Pokok</th>
+                        <th>Tunjangan Jabatan</th>
+                        <th>Tunjangan Kesehatan</th>
+                        <th>Gaji Kotor</th>
+                        <th>Zakat Profesi</th>
+                        <th>Take Home Pay</th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    <script>
+                    var nomor, warna;
+                    for(nomor = 1; nomor <= 100; nomor++){
+                        warna = (nomor % 2 == 0) ? '#6495ED' :'yellow';
+                        agama = (nomor % 2 == 0) ? 'Non Muslim' :'Muslim';
+                        
+                        if(nomor <= 25){
+                            jabatan = "Manager";
+                            gapokok = 15000000;
+                        }
+                        else if(nomor >= 26 && nomor <= 50 ){
+                            jabatan = "Asisten Manager";
+                            gapokok = 10000000;
+                        }
+                        else if(nomor >= 51 && nomor <= 75 ){
+                            jabatan = "Supervisor";
+                            gapokok = 7000000;
+                        }
+                        else if(nomor >= 76){
+                            jabatan = "Staff";
+                            gapokok = 4000000;
+                        }
+
+                        let tunjangan_jab = 0.2 * gapokok;
+                        let tunjangan_kes = 0.1 * gapokok;
+                        gajikor = gapokok + tunjangan_jab + tunjangan_kes;
+                        
+                        if(gajikor >= 7000000 && agama == 'Muslim'){
+                            zakat = 0.025 * gajikor;
+                        }else{
+                            zakat = 0;
+                        }
+                        
+                        pay = gajikor - zakat;
+
+                        document.write(`<tr bgcolor="${warna}">
+                            <td>${nomor}</td>
+                            <td>Pegawai ${nomor}</td>
+                            <td>${jabatan}</td>
+                            <td>${agama}</td>
+                            <td>${gapokok}</td>
+                            <td>${tunjangan_jab}</td>
+                            <td>${tunjangan_kes}</td>
+                            <td>${gajikor}</td>
+                            <td>${zakat}</td>
+                            <td>${pay}</td>
+                        </tr>`);
+                    }    
+                    </script>
+                </tbody>
+            </table>
