@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gempa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script>
+        class Gempa{
+            constructor(lokasi, skala){
+                this.lokasi = lokasi;
+                this.skala = skala;
+            }
+            getDampak(){
+                if(this.skala <= 2) this.dampak = 'Tidak Terasa';
+                else if(this.skala > 2 && this.skala <= 4) this.dampak ='Bangunan Retak-retak';
+                else if(this.skala > 4 && this.skala <= 6) this.dampak ='Bangunan Roboh';
+                else if(this.skala > 6) this.dampak ='Bangunan Roboh dan Berpotensi Tsunami';
+                else this.dampak = 'unwritten';
+                return this.dampak;
+            }
+        }
+
+        g1 = new Gempa('Palu', 7.4);
+        g2 = new Gempa('Banjarmasin', 2.4);
+        g3 = new Gempa('Medan', 4);
+        g4 = new Gempa('Banten', 1.2);
+        g5 = new Gempa('Jakarta', 4.4);
+        g6 = new Gempa('Jayapura', 5.5);
+        g7 = new Gempa('Surabaya', 1.7);
+        g8 = new Gempa('Bali', 3.1);
+        g9 = new Gempa('Malang', 6.2);
+        g10 = new Gempa('Yogyakarta', 4);
+
+        daftargempa = [g1, g2, g3, g4, g5, g6, g7, g8, g9, g10];
+    </script>
+</head>
+
+<body>
+    <div class="container px-2 my-5">
+        <h3 align="center">Informasi Gempa di Seluruh Indonesia Tahun 2022</h3>
+      <table class="table table-striped table-dark" border="yes">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Lokasi</th>
+            <th scope="col">Skala</th>
+            <th scope="col">Dampak</th>
+          </tr>
+        </thead>
+        <tbody>
+            <script language="javascript">
+                let no = 1;    
+                for(d of daftargempa){ 
+                    document.write(`<tr align="justify">
+                        <td>${no++}</td>
+                        <td>${d.lokasi}</td>
+                        <td>${d.skala}</td>
+                        <td>${d.getDampak()}</td>
+                    </tr>`);
+                }
+                </script>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</body>
+</html>
